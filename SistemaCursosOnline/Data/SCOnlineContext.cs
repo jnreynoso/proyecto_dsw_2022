@@ -20,6 +20,6 @@ namespace SistemaCursosOnline.Data
 
             new DbInitializer(modelBuilder).Seed();
         }
-        public DbSet<SistemaCursosOnline.Models.Courses>? Courses { get; set; }
+        public DbSet<SistemaCursosOnline.Models.Course>? Courses { get; set; }
     }
 }

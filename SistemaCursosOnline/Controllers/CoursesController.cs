@@ -56,7 +56,7 @@ namespace SistemaCursosOnline.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,name,description,scheduleId")] Courses courses)
+        public async Task<IActionResult> Create([Bind("id,name,description,scheduleId")] Course courses)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace SistemaCursosOnline.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,name,description,scheduleId")] Courses courses)
+        public async Task<IActionResult> Edit(int id, [Bind("id,name,description,scheduleId")] Course courses)
         {
             if (id != courses.id)
             {

@@ -22,7 +22,7 @@ namespace SistemaCursosOnline.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<Courses> courses;
+            List<Course> courses;
 
 
             if (_context.Courses != null)

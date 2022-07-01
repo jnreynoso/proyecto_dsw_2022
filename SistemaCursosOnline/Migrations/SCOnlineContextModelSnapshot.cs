@@ -21,7 +21,7 @@ namespace SistemaCursosOnline.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("SistemaCursosOnline.Models.Courses", b =>
+            modelBuilder.Entity("SistemaCursosOnline.Models.Course", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -134,7 +134,7 @@ namespace SistemaCursosOnline.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SistemaCursosOnline.Models.Courses", b =>
+            modelBuilder.Entity("SistemaCursosOnline.Models.Course", b =>
                 {
                     b.HasOne("SistemaCursosOnline.Models.Schedule", "Schedule")
                         .WithMany()

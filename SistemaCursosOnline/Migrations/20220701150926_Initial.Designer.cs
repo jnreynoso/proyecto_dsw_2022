@@ -11,8 +11,8 @@ using SistemaCursosOnline.Data;
 namespace SistemaCursosOnline.Migrations
 {
     [DbContext(typeof(SCOnlineContext))]
-    [Migration("20220701132339_Seed-Added")]
-    partial class SeedAdded
+    [Migration("20220701150926_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace SistemaCursosOnline.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("SistemaCursosOnline.Models.Courses", b =>
+            modelBuilder.Entity("SistemaCursosOnline.Models.Course", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -136,7 +136,7 @@ namespace SistemaCursosOnline.Migrations
                         });
                 });
 
-            modelBuilder.Entity("SistemaCursosOnline.Models.Courses", b =>
+            modelBuilder.Entity("SistemaCursosOnline.Models.Course", b =>
                 {
                     b.HasOne("SistemaCursosOnline.Models.Schedule", "Schedule")
                         .WithMany()

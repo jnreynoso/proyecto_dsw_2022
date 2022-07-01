@@ -22,12 +22,12 @@ namespace SistemaCursosOnline.Data
                 new Schedule { id = 4, turn = "Martes - Jueves - Sábado", beginning_hour = "4pm", finish_hour = "8pm", duration = "4 horas" }
             });
 
-            modelBuilder.Entity<Courses>().HasData(new Courses[]
+            modelBuilder.Entity<Course>().HasData(new Course[]
             {
-                new Courses { id = 5, name = "Python", description = "Odoo", scheduleId = 1 },
-                new Courses { id = 6, name = "MySql", description = "Indices, Consultas, DDL", scheduleId = 2 },
-                new Courses { id = 7, name = "Java", description = "Estructuras de datos", scheduleId = 3 },
-                new Courses { id = 8, name = "ITIL v4", description = "Servicios", scheduleId = 4 },
+                new Course { id = 5, name = "Python", description = "Odoo", scheduleId = 1 },
+                new Course { id = 6, name = "MySql", description = "Indices, Consultas, DDL", scheduleId = 2 },
+                new Course { id = 7, name = "Java", description = "Estructuras de datos", scheduleId = 3 },
+                new Course { id = 8, name = "ITIL v4", description = "Servicios", scheduleId = 4 },
             });
         }
     }

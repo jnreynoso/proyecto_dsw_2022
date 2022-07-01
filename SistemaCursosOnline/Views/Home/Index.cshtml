@@ -1,0 +1,25 @@
+﻿@model IEnumerable<SistemaCursosOnline.Models.Courses>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="information">
+                <div class="course-img center">
+                    <div class="img"></div>
+                </div>
+                <div class="description">
+                    <div>@item.name</div>
+                    <div>@item.Schedule.turn</div>
+                    <div>@item.Schedule.beginning_hour - @item.Schedule.finish_hour</div>
+                    <div>@item.Schedule.duration</div>
+                    <a>Seleccionar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

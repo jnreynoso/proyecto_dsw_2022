@@ -1,0 +1,40 @@
+.container[b-5dhhjvhytd] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.card[b-5dhhjvhytd] {
+    width: 48%;
+    height: 250px;
+}
+
+.course-img[b-5dhhjvhytd] {
+    width: 40%;
+}
+
+.center[b-5dhhjvhytd] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.description[b-5dhhjvhytd] {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img[b-5dhhjvhytd] {
+    width: 150px;
+    height: 150px;
+    background-color: blue;
+}
+
+.information[b-5dhhjvhytd] {
+    display: flex;
+    height: 100%;
+}

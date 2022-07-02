@@ -22,6 +22,7 @@ namespace SistemaCursosOnline.Data
         }
         public DbSet<SistemaCursosOnline.Models.Course>? Courses { get; set; }
         public DbSet<SistemaCursosOnline.Models.Schedule>? Schedule { get; set; }
+        public DbSet<SistemaCursosOnline.Models.Teacher>? Teacher{ get; set; }
         public DbSet<SistemaCursosOnline.Models.TeacherScheduling>? TeacherScheduling { get; set; }
     }
 }

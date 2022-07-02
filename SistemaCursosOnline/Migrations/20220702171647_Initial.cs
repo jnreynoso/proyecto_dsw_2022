@@ -139,10 +139,10 @@ namespace SistemaCursosOnline.Migrations
                 columns: new[] { "id", "description", "name", "photo_url", "scheduleId" },
                 values: new object[,]
                 {
-                    { 5, "Odoo", "Python", null, 1 },
-                    { 6, "Indices, Consultas, DDL", "MySql", null, 2 },
-                    { 7, "Estructuras de datos", "Java", null, 3 },
-                    { 8, "Servicios", "ITIL v4", null, 4 }
+                    { 5, "Odoo", "Python", "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/1200px-Python.svg.png", 1 },
+                    { 6, "Indices, Consultas, DDL", "MySql", "https://d1.awsstatic.com/asset-repository/products/amazon-rds/1024px-MySQL.ff87215b43fd7292af172e2a5d9b844217262571.png", 2 },
+                    { 7, "Estructuras de datos", "Java", "https://dev.java/assets/images/java-logo-vert-blk.png", 3 },
+                    { 8, "Servicios", "ITIL v4", "https://egaconsultores.com/wp-content/uploads/2020/05/itil-v4-foundation.png", 4 }
                 });
 
             migrationBuilder.InsertData(

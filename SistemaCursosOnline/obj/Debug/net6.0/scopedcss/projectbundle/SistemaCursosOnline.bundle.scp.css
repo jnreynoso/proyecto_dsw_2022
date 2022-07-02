@@ -39,6 +39,10 @@
     display: flex;
     height: 100%;
 }
+/* _content/SistemaCursosOnline/Views/ScheduleAvailable/Index.cshtml.rz.scp.css */
+.table[b-n19xeww4r6] {
+    margin-top: 50px;
+}
 /* _content/SistemaCursosOnline/Views/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */

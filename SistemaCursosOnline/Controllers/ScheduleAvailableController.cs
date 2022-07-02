@@ -23,10 +23,13 @@ namespace SistemaCursosOnline.Controllers
         {
             List<TeacherScheduling> availables;
 
+            Course courseSelected = _context.Courses.FirstOrDefault(x => x.id == courseId);
+
+            ViewBag.courseName = courseSelected.name;
 
             if (_context.TeacherScheduling != null)
             {
-                availables = await _context.TeacherScheduling.Include(x => x.Teacher).Include(x => x.Schedule).ToListAsync();
+                availables = await _context.TeacherScheduling.Include(x => x.Teacher).Include(x => x.Schedule).Where(x => x.courseId == courseId).ToListAsync();
 
                 _logger.LogInformation(availables.ToString());
             } else

@@ -24,10 +24,10 @@ namespace SistemaCursosOnline.Data
 
             modelBuilder.Entity<Course>().HasData(new Course[]
             {
-                new Course { id = 5, name = "Python", description = "Odoo", scheduleId = 1 },
-                new Course { id = 6, name = "MySql", description = "Indices, Consultas, DDL", scheduleId = 2 },
-                new Course { id = 7, name = "Java", description = "Estructuras de datos", scheduleId = 3 },
-                new Course { id = 8, name = "ITIL v4", description = "Servicios", scheduleId = 4 },
+                new Course { id = 5, name = "Python", description = "Odoo", scheduleId = 1, photo_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/1200px-Python.svg.png" },
+                new Course { id = 6, name = "MySql", description = "Indices, Consultas, DDL", scheduleId = 2, photo_url = "https://d1.awsstatic.com/asset-repository/products/amazon-rds/1024px-MySQL.ff87215b43fd7292af172e2a5d9b844217262571.png" },
+                new Course { id = 7, name = "Java", description = "Estructuras de datos", scheduleId = 3, photo_url = "https://dev.java/assets/images/java-logo-vert-blk.png" },
+                new Course { id = 8, name = "ITIL v4", description = "Servicios", scheduleId = 4, photo_url = "https://egaconsultores.com/wp-content/uploads/2020/05/itil-v4-foundation.png" },
             });
 
 

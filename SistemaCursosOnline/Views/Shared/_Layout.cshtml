@@ -16,10 +16,10 @@
         <nav class="menu">
             <div class="navbar-container">
                 <div class="navbar-menu">
-                    <span class="navbar-link border-radius-left" asp-area="" asp-controller="Home" asp-action="Index">Cursos</span>
-                    <span class="navbar-link" asp-area="" asp-controller="Home" asp-action="Privacy">Profesores</span>
+                    <span id="home" class="navbar-link border-radius-left" asp-area="" asp-controller="Home" asp-action="Index">Cursos</span>
+                    <span id="teachers" class="navbar-link" asp-area="" asp-controller="Teachers" asp-action="Index">Profesores</span>
                     <span class="navbar-link" asp-area="" asp-controller="Home" asp-action="Privacy">Nosotros</span>
-                    <span class="navbar-link border-radius-right" asp-area="" asp-controller="Home" asp-action="Privacy">Cuenta</span>
+                    <span class="navbar-link" border-radius-right" asp-area="" asp-controller="Home" asp-action="">Cuenta</span>
                 </div>
             </div>
         </nav>
@@ -33,6 +33,15 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        $('#home').click(function() {
+            document.location = '@Url.Action("Index","Home")';
+        });
+
+        $('#teachers').click(function() {
+            document.location = '@Url.Action("Index","Teachers")';
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

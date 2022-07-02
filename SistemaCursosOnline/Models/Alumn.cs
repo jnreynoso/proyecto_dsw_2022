@@ -1,16 +1,15 @@
 ﻿namespace SistemaCursosOnline.Models
 {
-    public class Teacher
+    public class Alumn
     {
         public int id { get; set; }
-        public string names { get; set; }
+        public string name { get; set; }
+        public string lastname { get; set; }
         public string dni { get; set; }
+        public string password { get; set; }
         public string phone { get; set; }
         public string email { get; set; }
         public Gender Gender { get; set; }
-        public int? genderId { get; set; }
-        public string cv_url { get; set; }
-        public string photo_url { get; set; }
-
+        public int genderId { get; set; }
     }
 }

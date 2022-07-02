@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SistemaCursosOnline.Models.CoursesGroupByTeacher>
+
+@{
+    ViewData["Title"] = "Cursos";
+}
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="information">
+                <div class="course-img center">
+                    <img src="@item.photoTeacher" class="img"/>
+                </div>
+                <div class="description">
+                    <div><b>@item.nameTeacher</b></div>
+                    <div>
+                        <ul>
+                        @foreach(var child in item.teacherAndCourse) {
+                            <li>@child.Course.name</li>
+                        }
+                        </ul>
+                    </div>
+                    @Html.ActionLink("Seleccionar", "Index", "CoursesByTeacher", new { teacherId= @item.teacherId }, null)
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -55,6 +55,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Cibertec/Desarrollo de Servicios Web/proyecto/SistemaCursosOnline/SistemaCursosOnline/Views/Access/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-gjm9e0df1n
+
+[D:/Cibertec/Desarrollo de Servicios Web/proyecto/SistemaCursosOnline/SistemaCursosOnline/Views/CoursesByTeacher/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc0J5VGVhY2hlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-5v26jzbtp4
+
 [D:/Cibertec/Desarrollo de Servicios Web/proyecto/SistemaCursosOnline/SistemaCursosOnline/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-5dhhjvhytd
@@ -66,3 +74,7 @@ build_metadata.AdditionalFiles.CssScope = b-n19xeww4r6
 [D:/Cibertec/Desarrollo de Servicios Web/proyecto/SistemaCursosOnline/SistemaCursosOnline/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-mazoobjhkc
+
+[D:/Cibertec/Desarrollo de Servicios Web/proyecto/SistemaCursosOnline/SistemaCursosOnline/Views/Teachers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-iw9kc0ior1

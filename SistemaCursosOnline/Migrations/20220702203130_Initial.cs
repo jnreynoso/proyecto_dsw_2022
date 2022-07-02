@@ -38,6 +38,23 @@ namespace SistemaCursosOnline.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TbUser",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    names = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    dni = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    password = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    attempts = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TbUser", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Teacher",
                 columns: table => new
                 {
@@ -47,8 +64,9 @@ namespace SistemaCursosOnline.Migrations
                     dni = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    genderId = table.Column<int>(type: "int", nullable: false),
-                    cv_url = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    genderId = table.Column<int>(type: "int", nullable: true),
+                    cv_url = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    photo_url = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -57,8 +75,7 @@ namespace SistemaCursosOnline.Migrations
                         name: "FK_Teacher_Gender_genderId",
                         column: x => x.genderId,
                         principalTable: "Gender",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "id");
                 });
 
             migrationBuilder.CreateTable(
@@ -81,6 +98,30 @@ namespace SistemaCursosOnline.Migrations
                         principalTable: "Schedule",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TeacherCourse",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    teacherId = table.Column<int>(type: "int", nullable: true),
+                    courseId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TeacherCourse", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_TeacherCourse_Courses_courseId",
+                        column: x => x.courseId,
+                        principalTable: "Courses",
+                        principalColumn: "id");
+                    table.ForeignKey(
+                        name: "FK_TeacherCourse_Teacher_teacherId",
+                        column: x => x.teacherId,
+                        principalTable: "Teacher",
+                        principalColumn: "id");
                 });
 
             migrationBuilder.CreateTable(
@@ -147,11 +188,22 @@ namespace SistemaCursosOnline.Migrations
 
             migrationBuilder.InsertData(
                 table: "Teacher",
-                columns: new[] { "id", "cv_url", "dni", "email", "genderId", "names", "phone" },
+                columns: new[] { "id", "cv_url", "dni", "email", "genderId", "names", "phone", "photo_url" },
                 values: new object[,]
                 {
-                    { 12, "http://jnreynoso.github.io/CV.pdf", "72494607", "jreynoso.mena@gmail.com", 9, "Jean Reynoso", "923359438" },
-                    { 13, "http://jnreynoso.github.io/CV.pdf", "00494607", "pjreynoso.mena@gmail.com", 9, "Pablo Reynoso", "923354545" }
+                    { 12, "http://jnreynoso.github.io/CV.pdf", "72494607", "jreynoso.mena@gmail.com", 9, "Jean Reynoso", "923359438", null },
+                    { 13, "http://jnreynoso.github.io/CV.pdf", "00494607", "pjreynoso.mena@gmail.com", 9, "Pablo Reynoso", "923354545", null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "TeacherCourse",
+                columns: new[] { "id", "courseId", "teacherId" },
+                values: new object[,]
+                {
+                    { 18, 5, 12 },
+                    { 19, 6, 12 },
+                    { 20, 7, 13 },
+                    { 21, 8, 13 }
                 });
 
             migrationBuilder.InsertData(
@@ -176,6 +228,16 @@ namespace SistemaCursosOnline.Migrations
                 column: "genderId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_TeacherCourse_courseId",
+                table: "TeacherCourse",
+                column: "courseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TeacherCourse_teacherId",
+                table: "TeacherCourse",
+                column: "teacherId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_TeacherScheduling_courseId",
                 table: "TeacherScheduling",
                 column: "courseId");
@@ -193,6 +255,12 @@ namespace SistemaCursosOnline.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "TbUser");
+
+            migrationBuilder.DropTable(
+                name: "TeacherCourse");
+
             migrationBuilder.DropTable(
                 name: "TeacherScheduling");
 

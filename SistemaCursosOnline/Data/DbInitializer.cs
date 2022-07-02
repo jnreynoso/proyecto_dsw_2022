@@ -54,6 +54,14 @@ namespace SistemaCursosOnline.Data
                 new TeacherScheduling {id = 17, courseId = 6, scheduleId = 2, teacherId = 12}
 
             });
+
+            modelBuilder.Entity<TeacherCourse>().HasData(new TeacherCourse[]
+            {
+                new TeacherCourse {id = 18, courseId = 5, teacherId = 12},
+                new TeacherCourse {id = 19, courseId = 6, teacherId = 12},
+                new TeacherCourse {id = 20, courseId = 7, teacherId = 13},
+                new TeacherCourse {id = 21, courseId = 8, teacherId = 13}
+            });
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gB4By/7QsKhV62ZGvE3Hp3TdytkQXyNluwx4t417BwGK0aDyB/GEAbmhwBbABVvoYJmS8dL7/+kr2yl4/aaiCA==",
+  "dgSpecHash": "34DOdB2CdpMmSo2Ub1SZaqec5KisF02okTldnT8bRBykWbCmTF+DvabuJHcR6SeQdoZJUEYkzzk8eQQjZUsi/w==",
   "success": true,
   "projectFilePath": "D:\\Cibertec\\Desarrollo de Servicios Web\\proyecto\\SistemaCursosOnline\\SistemaCursosOnline\\SistemaCursosOnline.csproj",
   "expectedPackageFiles": [
@@ -101,6 +101,7 @@
     "C:\\Users\\LENOVO\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
+    "C:\\Users\\LENOVO\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\system.composition\\1.0.31\\system.composition.1.0.31.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\system.composition.attributedmodel\\1.0.31\\system.composition.attributedmodel.1.0.31.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\system.composition.convention\\1.0.31\\system.composition.convention.1.0.31.nupkg.sha512",

@@ -1,0 +1,14 @@
+﻿.cv {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.url {
+    display: flex;
+    align-items: center;
+}
+
+.url > * {
+    padding-left: 10px;
+}

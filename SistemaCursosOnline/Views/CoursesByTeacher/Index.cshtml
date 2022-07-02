@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SistemaCursosOnline.Models.TeacherScheduling>
+
+@{
+    ViewData["Title"] = "Cursos";
+}
+
+<div class="cv">
+  <div><h1>@ViewBag.teacherName</h1></div>
+  <div class="url">
+    <span>Visualizar su CV</span>
+    <a href="@ViewBag.cv_url" target="_blank">Visualizar</a>
+  </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Curso
+            </th>
+            <th>
+                Días
+            </th>
+            <th>
+                Horario
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Schedule.turn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Schedule.beginning_hour) - @Html.DisplayFor(modelItem => item.Schedule.finish_hour) 
+            </td>
+            <td>
+                <a asp-action="Seleccionar" asp-route-id="@item.id">Seleccionar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

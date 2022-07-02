@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaCursosOnline.Data;
 
@@ -11,9 +12,10 @@ using SistemaCursosOnline.Data;
 namespace SistemaCursosOnline.Migrations
 {
     [DbContext(typeof(SCOnlineContext))]
-    partial class SCOnlineContextModelSnapshot : ModelSnapshot
+    [Migration("20220702203130_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,42 +23,6 @@ namespace SistemaCursosOnline.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("SistemaCursosOnline.Models.Alumn", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
-
-                    b.Property<string>("dni")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("genderId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("lastname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("genderId");
-
-                    b.ToTable("Alumn");
-                });
 
             modelBuilder.Entity("SistemaCursosOnline.Models.Course", b =>
                 {
@@ -402,17 +368,6 @@ namespace SistemaCursosOnline.Migrations
                             scheduleId = 2,
                             teacherId = 12
                         });
-                });
-
-            modelBuilder.Entity("SistemaCursosOnline.Models.Alumn", b =>
-                {
-                    b.HasOne("SistemaCursosOnline.Models.Gender", "Gender")
-                        .WithMany()
-                        .HasForeignKey("genderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Gender");
                 });
 
             modelBuilder.Entity("SistemaCursosOnline.Models.Course", b =>

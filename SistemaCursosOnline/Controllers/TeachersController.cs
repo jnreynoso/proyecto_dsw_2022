@@ -20,9 +20,32 @@ namespace SistemaCursosOnline.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            List<CoursesGroupByTeacher> results;
+
+            if (_context.Teacher != null)
+            {
+                results = await _context.TeacherCourse
+                    .Include(x => x.Course)
+                    .Include(x => x.Teacher)
+                    .GroupBy(x => x.teacherId)
+                    .Select(x => new CoursesGroupByTeacher{
+                        teacherId = x.Key,
+                        nameTeacher = x.FirstOrDefault(y => y.teacherId == x.Key).Teacher.names ,
+                        photoTeacher= x.FirstOrDefault(y => y.teacherId == x.Key).Teacher.photo_url,
+                        teacherAndCourse = x.ToList()
+                    })
+                    .ToListAsync();
+
+                _logger.LogInformation(results.ToString());
+            } else
+            {
+                return Problem("Entity set 'SCOnlineContext.Teachers'  is null.");
+            }
+
+
+            return View(results);
         }
     }
 }

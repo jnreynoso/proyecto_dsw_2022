@@ -13,11 +13,11 @@
                     <img src="@item.photo_url" class="img"></img>
                 </div>
                 <div class="description">
-                    <div>@item.name</div>
-                    <div>@item.Schedule.turn</div>
+                    <div><b>@item.name</b></div>
+                    <div><i>@item.Schedule.turn</i></div>
                     <div>@item.Schedule.beginning_hour - @item.Schedule.finish_hour</div>
                     <div>@item.Schedule.duration</div>
-                    @Html.ActionLink("Seleccionar", "", "ScheduleAvailable", new { courseId = item.id }, null)
+                    @Html.ActionLink("Seleccionar", "Index", "ScheduleAvailable", new { courseId = item.id }, null)
                 </div>
             </div>
         </div>

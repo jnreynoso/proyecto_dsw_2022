@@ -12,8 +12,8 @@ using SistemaCursosOnline.Data;
 namespace SistemaCursosOnline.Migrations
 {
     [DbContext(typeof(SCOnlineContext))]
-    [Migration("20220702171647_Initial")]
-    partial class Initial
+    [Migration("20220702203510_AlumnAdded")]
+    partial class AlumnAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,42 @@ namespace SistemaCursosOnline.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("SistemaCursosOnline.Models.Alumn", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+
+                    b.Property<string>("dni")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("genderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("lastname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("genderId");
+
+                    b.ToTable("Alumn");
+                });
 
             modelBuilder.Entity("SistemaCursosOnline.Models.Course", b =>
                 {
@@ -177,6 +213,34 @@ namespace SistemaCursosOnline.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SistemaCursosOnline.Models.TbUser", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+
+                    b.Property<int>("attempts")
+                        .HasColumnType("int");
+
+                    b.Property<string>("dni")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("names")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("TbUser");
+                });
+
             modelBuilder.Entity("SistemaCursosOnline.Models.Teacher", b =>
                 {
                     b.Property<int>("id")
@@ -194,13 +258,16 @@ namespace SistemaCursosOnline.Migrations
                     b.Property<string>("email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("genderId")
+                    b.Property<int?>("genderId")
                         .HasColumnType("int");
 
                     b.Property<string>("names")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("photo_url")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -229,6 +296,55 @@ namespace SistemaCursosOnline.Migrations
                             genderId = 9,
                             names = "Pablo Reynoso",
                             phone = "923354545"
+                        });
+                });
+
+            modelBuilder.Entity("SistemaCursosOnline.Models.TeacherCourse", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+
+                    b.Property<int?>("courseId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("teacherId")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("courseId");
+
+                    b.HasIndex("teacherId");
+
+                    b.ToTable("TeacherCourse");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 18,
+                            courseId = 5,
+                            teacherId = 12
+                        },
+                        new
+                        {
+                            id = 19,
+                            courseId = 6,
+                            teacherId = 12
+                        },
+                        new
+                        {
+                            id = 20,
+                            courseId = 7,
+                            teacherId = 13
+                        },
+                        new
+                        {
+                            id = 21,
+                            courseId = 8,
+                            teacherId = 13
                         });
                 });
 
@@ -290,6 +406,17 @@ namespace SistemaCursosOnline.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SistemaCursosOnline.Models.Alumn", b =>
+                {
+                    b.HasOne("SistemaCursosOnline.Models.Gender", "Gender")
+                        .WithMany()
+                        .HasForeignKey("genderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Gender");
+                });
+
             modelBuilder.Entity("SistemaCursosOnline.Models.Course", b =>
                 {
                     b.HasOne("SistemaCursosOnline.Models.Schedule", "Schedule")
@@ -305,11 +432,24 @@ namespace SistemaCursosOnline.Migrations
                 {
                     b.HasOne("SistemaCursosOnline.Models.Gender", "Gender")
                         .WithMany()
-                        .HasForeignKey("genderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("genderId");
 
                     b.Navigation("Gender");
+                });
+
+            modelBuilder.Entity("SistemaCursosOnline.Models.TeacherCourse", b =>
+                {
+                    b.HasOne("SistemaCursosOnline.Models.Course", "Course")
+                        .WithMany()
+                        .HasForeignKey("courseId");
+
+                    b.HasOne("SistemaCursosOnline.Models.Teacher", "Teacher")
+                        .WithMany()
+                        .HasForeignKey("teacherId");
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Teacher");
                 });
 
             modelBuilder.Entity("SistemaCursosOnline.Models.TeacherScheduling", b =>

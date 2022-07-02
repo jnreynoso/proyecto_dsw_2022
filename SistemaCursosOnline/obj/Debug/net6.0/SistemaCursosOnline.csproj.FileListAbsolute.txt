@@ -263,3 +263,6 @@ D:\Cibertec\Desarrollo de Servicios Web\proyecto\SistemaCursosOnline\SistemaCurs
 D:\Cibertec\Desarrollo de Servicios Web\proyecto\SistemaCursosOnline\SistemaCursosOnline\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Cibertec\Desarrollo de Servicios Web\proyecto\SistemaCursosOnline\SistemaCursosOnline\obj\Debug\net6.0\SistemaCursosOnline.csproj.CopyComplete
 D:\Cibertec\Desarrollo de Servicios Web\proyecto\SistemaCursosOnline\SistemaCursosOnline\obj\Debug\net6.0\scopedcss\Views\ScheduleAvailable\Index.cshtml.rz.scp.css
+D:\Cibertec\Desarrollo de Servicios Web\proyecto\SistemaCursosOnline\SistemaCursosOnline\obj\Debug\net6.0\scopedcss\Views\Teachers\Index.cshtml.rz.scp.css
+D:\Cibertec\Desarrollo de Servicios Web\proyecto\SistemaCursosOnline\SistemaCursosOnline\obj\Debug\net6.0\scopedcss\Views\CoursesByTeacher\Index.cshtml.rz.scp.css
+D:\Cibertec\Desarrollo de Servicios Web\proyecto\SistemaCursosOnline\SistemaCursosOnline\obj\Debug\net6.0\scopedcss\Views\Access\Login.cshtml.rz.scp.css

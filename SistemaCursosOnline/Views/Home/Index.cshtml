@@ -10,14 +10,14 @@
         <div class="card">
             <div class="information">
                 <div class="course-img center">
-                    <div class="img"></div>
+                    <img src="@item.photo_url" class="img"></img>
                 </div>
                 <div class="description">
                     <div>@item.name</div>
                     <div>@item.Schedule.turn</div>
                     <div>@item.Schedule.beginning_hour - @item.Schedule.finish_hour</div>
                     <div>@item.Schedule.duration</div>
-                    <a>Seleccionar</a>
+                    @Html.ActionLink("Seleccionar", "", "ScheduleAvailable", new { courseId = item.id }, null)
                 </div>
             </div>
         </div>

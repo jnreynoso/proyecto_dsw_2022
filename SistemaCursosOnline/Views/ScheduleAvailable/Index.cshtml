@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SistemaCursosOnline.Models.TeacherScheduling>
+
+@{
+    ViewData["Title"] = "Cursos disponibles";
+}
+
+<h1>ScheduleAvailable</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Profesor
+            </th>
+            <th>
+                Días
+            </th>
+            <th>
+                Horario
+            </th>
+            <th>
+                CV
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher.names)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Schedule.turn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Schedule.beginning_hour) - @Html.DisplayFor(modelItem => item.Schedule.finish_hour) 
+            </td>
+            <td>
+                <a href="@item.Teacher.cv_url" target="_blank">Visualizar</a>
+            </td>
+            <td>
+                <a asp-action="Seleccionar" asp-route-id="@item.id">Seleccionar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
